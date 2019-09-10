@@ -5,7 +5,8 @@ def input_students
   students = []
   # get the first name
   name = gets.chomp
-  #while the name is not empty repeat thsis code
+
+  # while the name is not empty repeat thsis code
   while !name.empty? do
     # add the student hash to the array
     students << {name: name, cohort: :november}
@@ -13,7 +14,7 @@ def input_students
     # get another name from the user
     name = gets.chomp
   end
-# return the array of students
+  # return the array of students
   students
 end
 
@@ -23,9 +24,13 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index do |student, i|
-    puts "#{i+1}: #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+  puts "Collect student's name(s) beginning with this letter:"
+  first_letter = gets.chomp
+    students.each_with_index do |student, index|
+      if student[:name][0] == first_letter
+        puts "#{index +1}. #{student[:name]} (#{student[:cohort]} cohort)"
+      end
+    end
 end
 
 def print_footer(names)
@@ -33,7 +38,7 @@ def print_footer(names)
 end
 
 students = input_students
-#nothing will happen until methods are called
+# nothing will happen until methods are called
 print_header
 print(students)
 print_footer(students)
