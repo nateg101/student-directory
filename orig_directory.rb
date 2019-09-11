@@ -4,7 +4,7 @@ def load_students
   file = File.open("students.csv", "r") #"r" = read the file
   file.readlines.each do |line|
   name, cohort = line.chomp.split(",")
-    @students << {name: name, cohort: cohort,to_sym}
+    @students << {name: name, cohort: cohort.to_sym}
   end
   file.close
 end
